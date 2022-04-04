@@ -1,5 +1,5 @@
 const express = require('express')
-const res = require('express/lib/response')
+const resp = require('express/lib/response')
 const mongoose = require('mongoose')
 const ShortUrl = require('./models/shortUrl')
 const app = express()
