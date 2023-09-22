@@ -3,7 +3,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const ShortUrl = require('./models/shortUrl')
 const app = express()
-const port = 1111
+const port = process.env.PORT || 1111
 
 mongoose.connect('mongodb://127.0.0.1/urlShortner', {useNewUrlParser: true, useUnifiedTopology: true})
 
