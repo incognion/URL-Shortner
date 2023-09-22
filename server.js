@@ -32,5 +32,5 @@ app.get('/:shortUrl', async (req, resp) => {
 
 
 app.listen(port, ()=>{
-    console.log(`this app is listening at [ http://localhost:${port} ] or at [ http://127.0.0.1:${port} ]`)
+    console.log(`this app is listening at port: ${port}`)
 })
