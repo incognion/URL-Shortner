@@ -2,7 +2,7 @@
   "name": "url-shortner",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "start": "node server.js"
   },
@@ -14,8 +14,5 @@
     "express": "^4.17.3",
     "mongoose": "^6.2.9",
     "shortid": "^2.2.16"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.15"
   }
 }

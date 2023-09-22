@@ -1,12 +1,11 @@
 const express = require('express')
-const res = require('express/lib/response')
+// const resp = require('express/lib/response')
 const mongoose = require('mongoose')
 const ShortUrl = require('./models/shortUrl')
 const app = express()
+const port = 1111
 
-mongoose.connect('mongodb://localhost/urlShortner', {
-    useNewUrlParser: true, useUnifiedTopology: true
-})
+mongoose.connect('mongodb://127.0.0.1/urlShortner', {useNewUrlParser: true, useUnifiedTopology: true})
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
@@ -32,4 +31,6 @@ app.get('/:shortUrl', async (req, resp) => {
 })
 
 
-app.listen(process.env.PORT || 5000)
+app.listen(port, ()=>{
+    console.log(`this app is listening at [ http://localhost:${port} ] or at [ http://127.0.0.1:${port} ]`)
+})
