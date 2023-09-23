@@ -5,7 +5,7 @@ const ShortUrl = require('./models/shortUrl')
 const app = express()
 const port = process.env.PORT || 1111
 
-mongoose.connect('mongodb://localhost/urlShortner', {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect('mongodb://127.0.0.1:27017/urlShortner', {useNewUrlParser: true, useUnifiedTopology: true})
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
