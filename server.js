@@ -3,9 +3,18 @@ const express = require('express')
 const mongoose = require('mongoose')
 const ShortUrl = require('./models/shortUrl')
 const app = express()
-const port = process.env.PORT || 1111
+require('dotenv').config()
+const PORT = process.env.PORT || 1111
 
-mongoose.connect('mongodb://127.0.0.1:27017/urlShortner', {useNewUrlParser: true, useUnifiedTopology: true})
+const db = async ()=>{
+    try{
+        const conn = await mongoose.connect(process.env.MONGODB_URI,{ useNewUrlParser: true, useUnifiedTopology: true})
+        console.log(`Database Connected: ${conn.connection.host}`)
+    } catch (error){
+        console.log(error)
+        process.exit(1)
+    }
+}
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
@@ -31,6 +40,6 @@ app.get('/:shortUrl', async (req, resp) => {
 })
 
 
-app.listen(port, ()=>{
-    console.log(`this app is listening at port: ${port}`)
+db().then(()=>{
+    app.listen(PORT,()=> console.log(`Listening on port ${PORT}`))
 })
